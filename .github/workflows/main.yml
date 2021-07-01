@@ -19,7 +19,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -37,8 +37,11 @@ jobs:
         run: dotnet build --configuration Release --no-restore
       
       - name: Archive Release
-        uses: thedoctor0/zip-release@master
+        uses: vimtor/action-zip@v1
         with:
-          filename: 'FiveM-Workbench-release.zip'
-          directory: D:\a\FiveM-Workbench\FiveM-Workbench\FiveM-Workbench\bin\Release\net5.0-windows
+          # Files or directories to zip
+          files: D:\a\FiveM-Workbench\FiveM-Workbench\FiveM-Workbench\bin\Release\net5.0-windows
+          # Name of output zip file
+          dest: "FiveM-Workbench-release.zip"
+
       
