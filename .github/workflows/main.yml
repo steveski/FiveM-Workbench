@@ -36,9 +36,9 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
       
-      #- name: Archive Release
-      #  uses: thedoctor0/zip-release@master
-      #  with:
-      #    filename: 'release.zip'
-      #    directory: 
+      - name: Archive Release
+        uses: thedoctor0/zip-release@master
+        with:
+          filename: 'release.zip'
+          directory: D:\a\FiveM-Workbench\FiveM-Workbench\FiveM-Workbench\bin\Release\net5.0-windows\
       
