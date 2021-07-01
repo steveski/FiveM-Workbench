@@ -40,5 +40,5 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           filename: 'release.zip'
-          directory: D:\a\FiveM-Workbench\FiveM-Workbench\FiveM-Workbench\bin\Release\net5.0-windows\
+          directory: ${{ GITHUB_WORKSPACE }}
       
