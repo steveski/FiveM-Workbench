@@ -19,7 +19,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -39,6 +39,6 @@ jobs:
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
-          filename: 'release.zip'
-          directory: ${{ env.RUNNER_TEMP }}
+          filename: 'FiveM-Workbench-release.zip'
+          directory: D:\a\FiveM-Workbench\FiveM-Workbench\FiveM-Workbench\bin\Release\net5.0-windows
       
