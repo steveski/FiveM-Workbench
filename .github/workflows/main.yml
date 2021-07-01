@@ -5,16 +5,11 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
+
   push:
-    branches:
-      - '**' # All branches
+    branches: [ main ]
   pull_request:
-    branches:
-      - '**' # All branches
-  # push:
-  #   branches: [ main ]
-  # pull_request:
-  #   branches: [ main ]
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -30,7 +25,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+      - name: Display workspace folder
+        run: |
+          echo $GITHUB_WORKSPACE
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v1.8.1
         with:
@@ -39,4 +36,10 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build --configuration Release --no-restore
-        
+      
+      #- name: Archive Release
+      #  uses: thedoctor0/zip-release@master
+      #  with:
+      #    filename: 'release.zip'
+      #    directory: 
+      
