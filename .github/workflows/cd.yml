@@ -1,3 +1,5 @@
+# This explains the if condition and pull_request trigger
+# https://github.community/t/depend-on-another-workflow/16311/3
 name: Release
 
 on:
@@ -12,6 +14,7 @@ on:
 
 jobs:
   calculate-version:
+    if: github.event.pull_request.merged
     name: Calculate Version
     runs-on: ubuntu-latest
     outputs:
@@ -35,6 +38,7 @@ jobs:
         configFilePath: ./GitVersion.yml
 
   build:
+    if: github.event.pull_request.merged
     name: Build and Release
     runs-on: windows-latest
     needs: calculate-version
