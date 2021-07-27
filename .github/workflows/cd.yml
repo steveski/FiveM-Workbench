@@ -1,9 +1,14 @@
 name: Release
 
 on:
-  push:
-    tags:
-      - '*'
+  #push:
+  #  tags:
+  #    - '*'
+      
+  pull_request:
+    types: [closed]
+    branches:
+      - master
 
 jobs:
   calculate-version:
